@@ -10,12 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
-//import mfont.usermanager.com.User;
-=======
+
 import drivemigs.bean.com.UserBean;
-import mfont.usermanager.com.User;
->>>>>>> f29c68e712b771aa9fcab7fbe0061cc917e6d647
 
 /**
  * Servlet implementation class SignUp
@@ -79,7 +75,7 @@ public class SignUp extends HttpServlet {
 		
 		String actionMessage/**, url**/;
 		int fail =0;
-		UserBean user = new UserBean(userName,eMail);
+		UserBean user = new UserBean(userName, pwd1, name, firstname, eMail );
 		request.setAttribute("user", user);
 		String errorMail = validateEmail(eMail);
 		if (errorMail!=null) {
@@ -99,8 +95,8 @@ public class SignUp extends HttpServlet {
 		if(fail==0) {
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
-			((HashMap<String, User>) session.getAttribute("users")).put(user.getEmail(),user);
-			session.setAttribute("users",users);
+			((HashMap<String, UserBean>) session.getAttribute("users")).put(user.getEmailAdress(),user);
+			session.setAttribute("users",user);
 			//url = VIEW_USERS_URL;
 		}else {
 			actionMessage="Echec de l'inscription";
@@ -112,14 +108,10 @@ public class SignUp extends HttpServlet {
 		request.setAttribute("errors", errors);
 		request.setAttribute("actionMessage", actionMessage);
 		
-		this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).include(request, response);
-		
-<<<<<<< HEAD
+		// this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).include(request, response);
+			
 	}
-=======
-		
-	}	
->>>>>>> f29c68e712b771aa9fcab7fbe0061cc917e6d647
+
 		
 		private String validatePwd(String pwd1, String pwd2) {
 			if(pwd1 != null && pwd1.trim().length() != 0) {
@@ -149,11 +141,10 @@ public class SignUp extends HttpServlet {
 				}
 			} else { 
 				return("L'adresse mail est obligatoire<br>");		
-			}		
-			
-			
-
+			}
 		}
+			
+			
 		
 		private String validateUserName(String userName) {
 			if(userName != null && userName.trim().length() != 0) {
@@ -164,11 +155,15 @@ public class SignUp extends HttpServlet {
 				}
 			}else {	
 				return ERROR_UN2;
-			}		
+			}	
+			
+		}
+		
+}
 
 	
 
-}
+
 
 
 

@@ -16,6 +16,30 @@ public class UserBean {
 	
 	
 	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmailAdress() {
+		return emailAdress;
+	}
+
+	public void setEmailAdress(String emailAdress) {
+		this.emailAdress = emailAdress;
+	}
+
 	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
 		super();
 		this.userName = userName;
