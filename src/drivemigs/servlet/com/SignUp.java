@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import drivemigs.bean.com.UserBean;
 
+import drivemigs.bean.com.UserBean;
 
 
 /**
@@ -83,6 +83,7 @@ public class SignUp extends HttpServlet {
 		
 		String actionMessage/**, url**/;
 		int fail =0;
+
 		UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
 	
 		request.setAttribute("user", user);
@@ -113,6 +114,7 @@ public class SignUp extends HttpServlet {
 		if(fail==0) {
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
+
 			//ADD USER TO DATABASE HERE//////
 			//CHECK IF USER ALREADY EXISTS///
 			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
@@ -129,6 +131,7 @@ public class SignUp extends HttpServlet {
 		request.setAttribute("errors", errors);
 		request.setAttribute("actionMessage", actionMessage);
 		
+
 		
 		this.getServletContext().getRequestDispatcher(url).include(request, response);
 	}
@@ -162,6 +165,7 @@ public class SignUp extends HttpServlet {
 				}
 			} else { 
 				return("L'adresse mail est obligatoire<br>");		
+
 			}		
 						
 		}
@@ -174,8 +178,10 @@ public class SignUp extends HttpServlet {
 						return null;
 				}
 			}else {	
-				return ERROR_UN2;
-			}		
+
+
+			}	
+			return null; 
 		}
 	
 		private String validateUserFN(String firstName) {
@@ -189,8 +195,10 @@ public class SignUp extends HttpServlet {
 				return ERROR_FN2;
 			}		
 		}
-
+		
 }
+
+
 
 
 

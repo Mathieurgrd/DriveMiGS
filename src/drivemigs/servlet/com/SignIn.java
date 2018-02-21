@@ -41,8 +41,15 @@ public class SignIn extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		// doGet(request, response);
+	
+	String userName = request.getParameter("userName");
+	String pwd = request.getParameter("pass");
+	
+	
+	this.getServletContext().getRequestDispatcher("something").include(request, response);
+	
+	
+		
 	}
 		
 		private String validatePwd(String pwd1, String pwd2) {
@@ -62,10 +69,7 @@ public class SignIn extends HttpServlet {
 				return ERROR_MAIL4;
 			}
 		
-		
-		
-		
-	}
+		}
 		
 		private String validateEmail(String email) {
 			if( email != null && email.trim().length()!=0) {
