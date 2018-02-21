@@ -13,10 +13,13 @@ public class UserBean {
 	private int statutUser; 
 	
 	
+<<<<<<< HEAD
 	
 	
 
 
+=======
+>>>>>>> 9700585f638feffd1200c2fbd07a1b6c5213b3f7
 	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
 		super();
 		this.userName = userName;

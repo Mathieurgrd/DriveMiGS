@@ -120,6 +120,7 @@ public class SignUp extends HttpServlet {
 			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
 			session.setAttribute("user",user);
 			url = VIEW_SUCCESS_URL;
+
 		}else {
 			actionMessage="Echec de l'inscription";
 			request.setAttribute("errorStatus", true);
