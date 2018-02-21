@@ -13,9 +13,6 @@ public class UserBean {
 	private int statutUser; 
 	
 	
-	
-	
-	
 	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
 		super();
 		this.userName = userName;
