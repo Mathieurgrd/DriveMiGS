@@ -95,7 +95,7 @@ public class SignUp extends HttpServlet {
 		if(fail==0) {
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
-			((HashMap<String, User>) session.getAttribute("users")).put(user.getEmail(),user);
+			((HashMap<String, UserBean>) session.getAttribute("users")).put(user.getEmail(),user);
 			session.setAttribute("users",users);
 			//url = VIEW_USERS_URL;
 		}else {
