@@ -10,14 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-<<<<<<< HEAD
 
 import drivemigs.bean.com.UserBean;
-=======
-import drivemigs.bean.com.UserBean;
 
-
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 
 /**
  * Servlet implementation class SignUp
@@ -88,12 +83,9 @@ public class SignUp extends HttpServlet {
 		
 		String actionMessage/**, url**/;
 		int fail =0;
-<<<<<<< HEAD
-		UserBean user = new UserBean(userName, pwd1, name, firstname, eMail );
-=======
+
 		UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
 	
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		request.setAttribute("user", user);
 		String errorMail = validateEmail(eMail);
 		if (errorMail!=null) {
@@ -122,17 +114,12 @@ public class SignUp extends HttpServlet {
 		if(fail==0) {
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
-<<<<<<< HEAD
-			((HashMap<String, UserBean>) session.getAttribute("users")).put(user.getEmailAdress(),user);
-			session.setAttribute("users",user);
-			//url = VIEW_USERS_URL;
-=======
+
 			//ADD USER TO DATABASE HERE//////
 			//CHECK IF USER ALREADY EXISTS///
 			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
 			session.setAttribute("user",user);
 			url = VIEW_SUCCESS_URL;
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		}else {
 			actionMessage="Echec de l'inscription";
 			request.setAttribute("errorStatus", true);
@@ -143,17 +130,11 @@ public class SignUp extends HttpServlet {
 		request.setAttribute("errors", errors);
 		request.setAttribute("actionMessage", actionMessage);
 		
-<<<<<<< HEAD
-		// this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).include(request, response);
-			
-	}
 
-=======
 		
 		this.getServletContext().getRequestDispatcher(url).include(request, response);
 	}
 		
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		
 		private String validatePwd(String pwd1, String pwd2) {
 			if(pwd1 != null && pwd1.trim().length() != 0) {
@@ -183,16 +164,10 @@ public class SignUp extends HttpServlet {
 				}
 			} else { 
 				return("L'adresse mail est obligatoire<br>");		
-<<<<<<< HEAD
-			}
-		}
-			
-			
-=======
+
 			}		
 						
 		}
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		
 		private String validateUserName(String name) {
 			if(name != null && name.trim().length() != 0) {
@@ -202,18 +177,11 @@ public class SignUp extends HttpServlet {
 						return null;
 				}
 			}else {	
-				return ERROR_UN2;
-<<<<<<< HEAD
-			}	
-			
-		}
-		
-}
 
-=======
-			}		
+
+			}	
+			return null; 
 		}
->>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 	
 		private String validateUserFN(String firstName) {
 			if(firstName != null && firstName.trim().length() != 0) {
@@ -226,6 +194,8 @@ public class SignUp extends HttpServlet {
 				return ERROR_FN2;
 			}		
 		}
+		
+}
 
 
 
