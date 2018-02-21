@@ -1,24 +1,26 @@
 package drivemigs.bean.com;
 
+import java.util.Date;
 import java.util.List;
 
-public class TransportBean {
+public class TrajetBean {
 	
-	public static final int transportIdle = 0;
-	public static final int transportStarted = 10;
-	public static final int transportEnded = 20;
+	public static final int transportFermer = 0;
+	public static final int transportOuvert = 10;
+	public static final int transportStarted = 20;
+	public static final int transportEnded = 30;
 	
 	private UserBean transportDriver;
 	private List<UserBean> transportPassenger;
 	private int statutTransport; 
+	private double LatDepart;
+	private double LongDepart;
+	private Date dateDepart;
+	private String heureDepart; 
 
 	
 	
-	public TransportBean(UserBean transportDriver, List<UserBean> transportPassenger) {
-		super();
-		this.transportDriver = transportDriver;
-		this.setTransportPassenger(transportPassenger);
-	}
+
 	
 	public UserBean getTransportDriver() {
 		return transportDriver;
