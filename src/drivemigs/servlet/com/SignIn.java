@@ -12,11 +12,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/SignIn")
 public class SignIn extends HttpServlet {
+	
+	
 	private static final long serialVersionUID = 1L;
 	private static final String ERROR_MAIL1 = "Trop court !";
 	private static final String ERROR_MAIL2 = "Ne corresponde pas !";
 	private static final String ERROR_MAIL3 = "Password vide";
 	private static final String ERROR_MAIL4 = "Je sais pas regarde le code !";
+ 
        
     /**
      * @see HttpServlet#HttpServlet()
