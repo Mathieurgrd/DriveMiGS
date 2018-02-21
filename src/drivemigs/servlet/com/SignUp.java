@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import mfont.usermanager.com.User;
+//import mfont.usermanager.com.User;
 
 /**
  * Servlet implementation class SignUp
@@ -53,7 +53,7 @@ public class SignUp extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 		
-		
+	}
 		
 		private String validatePwd(String pwd1, String pwd2) {
 			if(pwd1 != null && pwd1.trim().length() != 0) {
@@ -72,6 +72,7 @@ public class SignUp extends HttpServlet {
 				return ERROR_MAIL4;
 			}
 		}
+	
 		
 		private String validateEmail(String email) {
 			if( email != null && email.trim().length()!=0) {
@@ -87,5 +88,6 @@ public class SignUp extends HttpServlet {
 	}
 
 }
+
 
 

@@ -7,16 +7,23 @@ public class UserBean {
 	
 	private String userName; 
 	private String password;
+	private String firstName;
+	private String name;
+	private String emailAdress;
 	private int statutUser; 
 	
 	
 	
 	
 	
-	public UserBean(String userName, String password) {
+	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
 		super();
 		this.userName = userName;
 		this.password = password;
+		this.name= name;
+		this.firstName = firstName;
+		this.password = password;
+		this.emailAdress = emailAdress;
 	}
 	
 	public String getUserName() {
