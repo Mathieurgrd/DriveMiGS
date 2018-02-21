@@ -10,8 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
 
 import drivemigs.bean.com.UserBean;
+=======
+import drivemigs.bean.com.UserBean;
+
+
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 
 /**
  * Servlet implementation class SignUp
@@ -19,7 +25,11 @@ import drivemigs.bean.com.UserBean;
 @WebServlet("/SignUp")
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private static final String VIEW_PAGES_URL="/WEB-INF/view/registration.jsp";
+	//Back to sign Up because of a mistake
+	private static final String VIEW_PAGES_URL="/WEB-INF/view/registration.jsp";
+	//Redirection to the first user page
+	private static final String VIEW_SUCCESS_URL="/WEB-INF/view/registration.jsp";
+	
 	//private static final String VIEW_USERS_URL="/WEB-INF/users.jsp";
 	
 	public static final String FIELD_EMAIL="email";
@@ -31,8 +41,10 @@ public class SignUp extends HttpServlet {
 	public static final String ERROR_PWD2="Les 2 mots de passe ne sont pas les mêmes<br>";
 	public static final String ERROR_PWD3="Merci de confirmer le mot de passe<br>";
 	public static final String ERROR_PWD4="Le mot de passe est obligatoire<br>";
-	public static final String ERROR_UN1="Le nom et le prénom sont trop courts<br>";
-	public static final String ERROR_UN2="Merci de renseigner un nom et/ou un prénom<br>";
+	public static final String ERROR_UN1="Le nom est trop court<br>";
+	public static final String ERROR_UN2="Merci de renseigner ton nom<br>";
+	public static final String ERROR_FN1="Le prénom est trop courts<br>";
+	public static final String ERROR_FN2="Merci de renseigner ton prénom<br>";
 //	public HashMap<String,User> users = new HashMap<String,User>();
 	
     /**
@@ -61,8 +73,9 @@ public class SignUp extends HttpServlet {
 		String pwd2 =request.getParameter(FIELD_PWD2);
 		String eMail=request.getParameter(FIELD_EMAIL);
 		String name=request.getParameter(FIELD_NAME);
-		String firstname= request.getParameter(FIELD_FIRSTNAME);
-		String userName = name+firstname;
+		String firstName= request.getParameter(FIELD_FIRSTNAME);
+		String userName = name+firstName;
+		String url;
 		
 		final HttpSession session = request.getSession();
 		// faut-il récupérer une liste utilisateur? Quel est son format 
@@ -75,17 +88,31 @@ public class SignUp extends HttpServlet {
 		
 		String actionMessage/**, url**/;
 		int fail =0;
+<<<<<<< HEAD
 		UserBean user = new UserBean(userName, pwd1, name, firstname, eMail );
+=======
+		UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
+	
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		request.setAttribute("user", user);
 		String errorMail = validateEmail(eMail);
 		if (errorMail!=null) {
 			errors.put(FIELD_EMAIL,errorMail);
 			fail++;			
 		}
-		String errorName = validateUserName(userName);
+	
+		String errorName = validateUserName(name);
 		if(errorName!=null) {
-			errors.put(userName, errorName);
+			fail++;
+			errors.put(name, errorName);
 		}
+		
+		String errorFName = validateUserFN(firstName);
+		if(errorFName !=null) {
+			errors.put(firstName, errorFName);
+			fail++;
+		}
+		
 		String errorPwd = validatePwd(pwd1,pwd2);
 		if (errorPwd!=null) {
 			errors.put(FIELD_PWD1,errorPwd);
@@ -95,23 +122,38 @@ public class SignUp extends HttpServlet {
 		if(fail==0) {
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
+<<<<<<< HEAD
 			((HashMap<String, UserBean>) session.getAttribute("users")).put(user.getEmailAdress(),user);
 			session.setAttribute("users",user);
 			//url = VIEW_USERS_URL;
+=======
+			//ADD USER TO DATABASE HERE//////
+			//CHECK IF USER ALREADY EXISTS///
+			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
+			session.setAttribute("user",user);
+			url = VIEW_SUCCESS_URL;
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		}else {
 			actionMessage="Echec de l'inscription";
 			request.setAttribute("errorStatus", true);
-			//url = VIEW_PAGES_URL;
+			url = VIEW_PAGES_URL;
 		}
 		
 		request.setAttribute("form", form);
 		request.setAttribute("errors", errors);
 		request.setAttribute("actionMessage", actionMessage);
 		
+<<<<<<< HEAD
 		// this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).include(request, response);
 			
 	}
 
+=======
+		
+		this.getServletContext().getRequestDispatcher(url).include(request, response);
+	}
+		
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		
 		private String validatePwd(String pwd1, String pwd2) {
 			if(pwd1 != null && pwd1.trim().length() != 0) {
@@ -141,27 +183,49 @@ public class SignUp extends HttpServlet {
 				}
 			} else { 
 				return("L'adresse mail est obligatoire<br>");		
+<<<<<<< HEAD
 			}
 		}
 			
 			
+=======
+			}		
+						
+		}
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 		
-		private String validateUserName(String userName) {
-			if(userName != null && userName.trim().length() != 0) {
-				if(userName.trim().length()<3) {
+		private String validateUserName(String name) {
+			if(name != null && name.trim().length() != 0) {
+				if(name.trim().length()<3) {
 					return(ERROR_UN1);
 				}else {
 						return null;
 				}
 			}else {	
 				return ERROR_UN2;
+<<<<<<< HEAD
 			}	
 			
 		}
 		
 }
 
+=======
+			}		
+		}
+>>>>>>> e8b143da50ed0fb26ca3abc0336a0ca21770ff4f
 	
+		private String validateUserFN(String firstName) {
+			if(firstName != null && firstName.trim().length() != 0) {
+				if(firstName.trim().length()<3) {
+					return(ERROR_FN1);
+				}else {
+						return null;
+				}
+			}else {	
+				return ERROR_FN2;
+			}		
+		}
 
 
 

@@ -69,6 +69,14 @@ public class UserBean {
 
 	public void setStatutUser(int statutUser) {
 		this.statutUser = statutUser;
+	}
+
+	public String getEmailAdress() {
+		return emailAdress;
+	}
+
+	public void setEmailAdress(String emailAdress) {
+		this.emailAdress = emailAdress;
 	} 
 	
 
