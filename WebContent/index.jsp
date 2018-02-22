@@ -10,11 +10,12 @@
 <body>
 COUCOUCOUCOCUUCUOCUCOUIOEJFBKJEJFKJ</body><br>
 	<!-- <a href="SignUp.jsp">M'inscrire</a> -->	
-		<a href="<c:url value="SignUp"/>">M'inscrire</a>
+		<a href="<c:url value="SignUp"/>">Inscription</a>
+		<a href="<c:url value="SignIn"/>">Connexion</a>
 
 	<c:if  test="${userStatus}">
-			<p>Nom : ${ user.getName() }</p><br>
-			<p>Prenom : ${user.getFirstName()}</p>
+			<p>Email : ${ user.getEmailAdress() }</p><br>
+			
 	</c:if>
 
 		
