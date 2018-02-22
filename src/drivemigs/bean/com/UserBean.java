@@ -10,19 +10,21 @@ public class UserBean {
 	private String firstName;
 	private String name;
 	private String emailAdress;
+	private String location;
 	private int statutUser; 
 	
 
 	public UserBean() {
 		super();
 	}
-	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
+	public UserBean(String userName, String password, String name, String firstName,String emailAdress,String location ) {
 		this.userName = userName;
 		this.password = password;
 		this.name= name;
 		this.firstName = firstName;
 		this.password = password;
 		this.emailAdress = emailAdress;
+		this.location = location;
 	}
 	
 	public String getUserName() {
@@ -30,6 +32,12 @@ public class UserBean {
 	}
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
 	}
 	public String getPassword() {
 		return password;

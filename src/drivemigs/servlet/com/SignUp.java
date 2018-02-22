@@ -3,6 +3,7 @@ package drivemigs.servlet.com;
 import java.io.IOException;
 import java.util.HashMap;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,6 +33,7 @@ public class SignUp extends HttpServlet {
 	public static final String FIELD_PWD2="pwd2";
 	public static final String FIELD_NAME="name";
 	public static final String FIELD_FIRSTNAME="firstname";
+	public static final String FIELD_LOCATION="location";
 	public static final String ERROR_PWD1="Le mot de passe doit contenir au moins 8 caractères<br>";
 	public static final String ERROR_PWD2="Les 2 mots de passe ne sont pas les mêmes<br>";
 	public static final String ERROR_PWD3="Merci de confirmer le mot de passe<br>";
@@ -40,6 +42,7 @@ public class SignUp extends HttpServlet {
 	public static final String ERROR_UN2="Merci de renseigner ton nom<br>";
 	public static final String ERROR_FN1="Le prénom est trop courts<br>";
 	public static final String ERROR_FN2="Merci de renseigner ton prénom<br>";
+	HashMap<String,UserBean> users = new HashMap<String,UserBean>();
 //	public HashMap<String,User> users = new HashMap<String,User>();
 	
     /**
@@ -66,6 +69,7 @@ public class SignUp extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
@@ -74,12 +78,14 @@ public class SignUp extends HttpServlet {
 		String eMail=request.getParameter(FIELD_EMAIL);
 		String name=request.getParameter(FIELD_NAME);
 		String firstName= request.getParameter(FIELD_FIRSTNAME);
+		String location = request.getParameter(FIELD_LOCATION);
 		String userName = name+firstName;
 		String url;
 		
 		final HttpSession session = request.getSession();
 		// faut-il récupérer une liste utilisateur? Quel est son format 
-		//session.setAttribute("users",users);
+		session.setAttribute("users",users);
+		
 		if(userName.equals(null)) {
 			name=eMail;
 		}
@@ -116,7 +122,9 @@ public class SignUp extends HttpServlet {
 		}
 		
 		if(fail==0) {
-			UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
+			UserBean user = new UserBean(userName,pwd1,name,firstName,eMail,location);
+			((HashMap<String, UserBean>) session.getAttribute("users")).put(eMail,user);
+			request.setAttribute("users", users);
 			request.setAttribute("user", user);
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
