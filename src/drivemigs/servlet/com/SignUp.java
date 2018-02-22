@@ -89,9 +89,8 @@ public class SignUp extends HttpServlet {
 		String actionMessage/**, url**/;
 		int fail =0;
 
-		UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
-	
-		request.setAttribute("user", user);
+		
+
 		String errorMail = validateEmail(eMail);
 		if (errorMail!=null) {
 			errors.put(FIELD_EMAIL,errorMail);
@@ -117,6 +116,8 @@ public class SignUp extends HttpServlet {
 		}
 		
 		if(fail==0) {
+			UserBean user = new UserBean(userName,pwd1,name,firstName,eMail);
+			request.setAttribute("user", user);
 			actionMessage="Succès de l'inscription";
 			request.setAttribute("userStatus", true);
 

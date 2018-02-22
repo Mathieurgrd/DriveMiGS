@@ -13,8 +13,10 @@ public class UserBean {
 	private int statutUser; 
 	
 
-	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
+	public UserBean() {
 		super();
+	}
+	public UserBean(String userName, String password, String name, String firstName,String emailAdress ) {
 		this.userName = userName;
 		this.password = password;
 		this.name= name;
