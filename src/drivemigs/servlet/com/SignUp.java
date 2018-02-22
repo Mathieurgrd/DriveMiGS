@@ -21,9 +21,9 @@ import drivemigs.bean.com.UserBean;
 public class SignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//Back to sign Up because of a mistake
-	private static final String VIEW_PAGES_URL="/WEB-INF/view/registration.jsp";
+	private static final String VIEW_PAGES_URL="/SignUp.jsp";
 	//Redirection to the first user page
-	private static final String VIEW_SUCCESS_URL="/WEB-INF/view/registration.jsp";
+	private static final String VIEW_SUCCESS_URL="/index.jsp";
 	
 	//private static final String VIEW_USERS_URL="/WEB-INF/users.jsp";
 	
@@ -55,7 +55,12 @@ public class SignUp extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.setAttribute("userStatus", false);
+		request.setAttribute("errorStatus", true);
+	
+		response.getWriter().append("Redirecting ...");
+		this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).forward(request,response);
 	}
 
 	/**

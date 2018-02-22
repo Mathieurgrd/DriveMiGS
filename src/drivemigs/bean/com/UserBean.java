@@ -50,7 +50,24 @@ public class UserBean {
 
 	public void setEmailAdress(String emailAdress) {
 		this.emailAdress = emailAdress;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	} 
+	
 	
 
 }
