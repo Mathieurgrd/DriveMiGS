@@ -36,6 +36,7 @@ public class SignIn extends HttpServlet {
 	public static final String ERROR_UN2 = "Merci de renseigner ton nom<br>";
 	public static final String ERROR_FN1 = "Le prénom est trop courts<br>";
 	public static final String ERROR_FN2 = "Merci de renseigner ton prénom<br>";
+	HashMap<String,UserBean> users = new HashMap<String,UserBean>();
 
 	/**
 	* @see HttpServlet#HttpServlet()
@@ -62,55 +63,80 @@ public class SignIn extends HttpServlet {
 	/**
 	* @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	*/
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//doGet(request, response);
+		
 		String pwd1 =request.getParameter(FIELD_PWD1);
 		String eMail=request.getParameter(FIELD_EMAIL);
 		String url;
 		
+		
 		final HttpSession session = request.getSession();
+		users = (HashMap<String, UserBean>) session.getAttribute("users");
 		// faut-il récupérer une liste utilisateur? Quel est son format 
-		//session.setAttribute("users",users);
-	
 		HashMap<String,String> form = new HashMap<String, String>();
 		HashMap<String,String> errors = new HashMap<String, String>();
 		
-		String actionMessage/**, url**/;
-		int fail =0;
+		String actionMessage="";/**, url**/;
+		int fail =0;		
 
-		
-		String errorMail = validateEmail(eMail);
-		if (errorMail!=null) {
-			errors.put(FIELD_EMAIL,errorMail);
-			fail++;			
-		}
-	
-		String errorPwd = validatePwd(pwd1);
-		if (errorPwd!=null) {
-			errors.put(FIELD_PWD1,errorPwd);
-			fail++;
-		}
-		
-		if(fail==0) {
-			actionMessage="Succès de la connexion";
-			UserBean user = new UserBean();
-			user.setEmailAdress(eMail);
-			user.setPassword(pwd1);
-			request.setAttribute("user", user);
-			request.setAttribute("userStatus", true);
-
-			//ADD USER TO DATABASE HERE//////
-			//CHECK IF USER ALREADY EXISTS///
-			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
-			session.setAttribute("user",user);
-			url = VIEW_SUCCESS_URL;
-
-		}else {
-			actionMessage="Echec de l'inscription";
+		if(users.size()==0) {
+			errors.put("noUser","Aucun utilisateur");
 			request.setAttribute("errorStatus", true);
 			url = VIEW_PAGES_URL;
+		}else {
+			String errorMail = validateEmail(eMail);
+			if (errorMail!=null) {
+				errors.put(FIELD_EMAIL,errorMail);
+				fail++;			
+			}
+		
+			String errorPwd = validatePwd(pwd1);
+			if (errorPwd!=null) {
+				errors.put(FIELD_PWD1,errorPwd);
+				fail++;
+			}
+			
+			if(fail==0) {
+				//ADD USER TO DATABASE HERE//////
+				//CHECK IF USER ALREADY EXISTS///
+				//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
+				UserBean user = users.get(eMail);
+				if(user !=null) {
+					if(user.getPassword().equals(pwd1)) {
+						actionMessage="Succès de la connexion";
+						user.setEmailAdress(eMail);
+						user.setPassword(pwd1);
+						request.setAttribute("user", user);
+						request.setAttribute("userStatus", true);
+						session.setAttribute("user",user);
+						url = VIEW_SUCCESS_URL;
+					}else {
+						errors.put(FIELD_PWD1,"Mauvais mot de passe");
+						actionMessage="Echec de l'authentification";
+						request.setAttribute("errorStatus", true);
+						url = VIEW_PAGES_URL;
+					}
+				} else {
+					actionMessage="Echec de l'authentification";
+					errors.put("noUser","Aucun compte");
+					request.setAttribute("errorStatus", true);
+					url = VIEW_PAGES_URL;
+				}
+				
+
+
+			}else {
+				actionMessage="Echec de l'authentification";
+				request.setAttribute("errorStatus", true);
+				url = VIEW_PAGES_URL;
+			}
+	
 		}
 		
+	
+				
 		request.setAttribute("form", form);
 		request.setAttribute("errors", errors);
 		request.setAttribute("actionMessage", actionMessage);
@@ -135,5 +161,5 @@ public class SignIn extends HttpServlet {
 		}
 
 	}
-
+	
 }
