@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Inscription</title>
@@ -11,41 +12,42 @@
 </head>
 
 <body>
-<div class="container">
-    <form>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom">
+    <div class="container">
+        <form method="POST" action="SignUp">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" name="firstname"><span class="error">${errors['firstname']}</span>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="Nom">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Nom" name="name"><span class="error">${errors['name']}</span>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email"><span class="error">${errors['email']}</span>
+                </div>
             </div>
-        </div>
+    
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe" name="pwd1"><span class="error">${errors['pwd1']}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2">
+                </div>
+            </div>
+    
+            <div class="form-group row">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Inscription</button>
+                </div>
+            </div>
+        </form>
+    </div>
 
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe">
-            </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe">
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Inscription</button>
-            </div>
-        </div>
-    </form>
-</div>
 </body>
 </html>
