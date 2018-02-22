@@ -12,14 +12,6 @@
 </head>
 
 <body>
-<c:choose>
-
-	<c:when  test="${userStatus}">
-
-			<p>Nom : ${ user.getName() }</p><br>
-			<p>Prenom : ${user.getFirstName()}</p>
-	</c:when>
-	<c:otherwise>
 	<div class="container">
 	    <form method="POST" action="SignUp">
 	        <div class="form-group row">
@@ -56,7 +48,6 @@
 	        </div>
 	    </form>
 	</div>
-	</c:otherwise>
-</c:choose>
+
 </body>
 </html>

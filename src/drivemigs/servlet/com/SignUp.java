@@ -124,12 +124,12 @@ public class SignUp extends HttpServlet {
 			//CHECK IF USER ALREADY EXISTS///
 			//(HashMap<String, User>) session.getAttribute("users").put(user.getEmail(),user);
 			session.setAttribute("user",user);
-			//url = VIEW_SUCCESS_URL;
+			url = VIEW_SUCCESS_URL;
 
 		}else {
 			actionMessage="Echec de l'inscription";
 			request.setAttribute("errorStatus", true);
-			///url = VIEW_PAGES_URL;
+			url = VIEW_PAGES_URL;
 		}
 		
 		request.setAttribute("form", form);
@@ -138,7 +138,7 @@ public class SignUp extends HttpServlet {
 		
 
 		
-		this.getServletContext().getRequestDispatcher(VIEW_PAGES_URL).include(request, response);
+		this.getServletContext().getRequestDispatcher(url).include(request, response);
 	}
 		
 		
