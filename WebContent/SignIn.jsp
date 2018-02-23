@@ -19,6 +19,7 @@
         <span class="error">${errors['noUser']}</span>
         <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><br><span class="error">${errors['email']}</span><br>
         <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><br><span class="error">${errors['pwd1']}</span><br>
+
         <label class="checkbox">
             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Rester connecté
         </label>
