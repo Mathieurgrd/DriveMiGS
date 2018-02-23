@@ -16,16 +16,16 @@
 <div class="wrapper">
     <form class="form-update" method="POST" action="UpdateUser">
         <h2 class="form-update-heading">Informations</h2>
-                <input type="text" class="form-control" name="firstName" placeholder="${user.getFirstName()}" /><br>
+                <input type="text" class="form-control" name="firstname" placeholder="${user.getFirstName()}" value="${user.getFirstName()}"/><br>
                 <span class="error">${errors['firstname']}</span><br>
-                <input type="text" class="form-control" name="name" placeholder="${user.getName()}"  /><br>
+                <input type="text" class="form-control" name="name" placeholder="${user.getName()}"  value="${user.getName()}"/><br>
                 <span class="error">${errors['name']}</span><br>
-                <input type="text" class="form-control" name="email" placeholder="${user.getEmailAdress()}"  /><br>
+                <input type="text" class="form-control" name="email" placeholder="${user.getEmailAdress()}" value="${user.getEmailAdress()}" /><br>
                 <span class="error">${errors['email']}</span><br>
-        		<input type="text" class="form-control" name="address" placeholder="${user.getLocation()}"  />
-        		<input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" /><br>
+        		<input type="text" class="form-control" name="location" placeholder="${user.getLocation()}" value="${user.getLocation()}"  />
+        		<input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" value="${user.getPassword()}"/><br>
         		<span class="error">${errors['pwd1']}</span><br>
-                <input type="password" class="form-control" name="pwd2" placeholder="Mot de passe" /><br>
+                <input type="password" class="form-control" name="pwd2" placeholder="Mot de passe" value="${user.getPassword()}" /><br>
                 <span class="error">${errors['pwd2']}</span><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">MODIFIER</button>
         <a href="/index.jsp">Annuler et retourner à l'accueil</a>
