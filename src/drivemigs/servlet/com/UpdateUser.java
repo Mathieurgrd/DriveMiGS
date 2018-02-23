@@ -98,7 +98,7 @@ public class UpdateUser extends HttpServlet {
 		
 	
 		
-		if(eMail!=null) {
+		if(!eMail.equals("")) {
 			String errorMail = validateEmail(eMail);
 			if (errorMail!=null) {
 				errors.put(FIELD_EMAIL,errorMail);
@@ -109,7 +109,7 @@ public class UpdateUser extends HttpServlet {
 			}
 		}
 		
-		if(pwd1!=null) {
+		if(!pwd1.equals("")) {
 			String errorPwd = validatePwd(pwd1,pwd2);
 			if(errorPwd!=null){
 				errors.put(FIELD_PWD1,errorPwd);
@@ -124,36 +124,24 @@ public class UpdateUser extends HttpServlet {
 			pwd1=user.getPassword();
 		}
 		
-		if(name!=null) {
-			String errorName = validateUserName(name);
-			if(errorName!=null) {
-				fail++;
-				errors.put(name, errorName);
-			}else {
-				changes++;
-				if(	key==0) {
-					((HashMap<String, UserBean>) session.getAttribute("users")).get(oldEmail).setName(name);	
-				}
+		if(!name.equals("")) {
+			changes++;
+			if(	key==0) {
+				((HashMap<String, UserBean>) session.getAttribute("users")).get(oldEmail).setName(name);	
 			}
 		}else {
 			name=user.getName();
 		}
 		
-		if(firstName!=null) {
-			String errorFName = validateUserFN(firstName);
-			if(errorFName !=null) {
-				errors.put(firstName, errorFName);
-				fail++;
-			}else {
-				changes++;
-				if(	key==0) {
-					((HashMap<String, UserBean>) session.getAttribute("users")).get(oldEmail).setFirstName(firstName);	
-				}
+		if(!firstName.equals("")) {
+			changes++;
+			if(	key==0) {
+				((HashMap<String, UserBean>) session.getAttribute("users")).get(oldEmail).setFirstName(firstName);	
 			}
 		}else {
 			firstName=user.getFirstName();
 		}
-		if(location!=null) {
+		if(!location.equals("")) {
 				changes++;
 				if(	key==0) {
 					((HashMap<String, UserBean>) session.getAttribute("users")).get(oldEmail).setLocation(location);	
@@ -216,44 +204,14 @@ public class UpdateUser extends HttpServlet {
 
 	
 	private String validateEmail(String email) {
-		if( email != null && email.trim().length()!=0) {
-			if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-				return(ERROR_MAIL2);
-			}else {
-				return null;
-			}
-		} else { 
-			return(ERROR_MAIL1);		
-
-		}		
-					
-	}
+		if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
+			return(ERROR_MAIL2);
+		}else {
+			return null;
+		}
+	} 		
 	
-	private String validateUserName(String name) {
-		if(name != null && name.trim().length() != 0) {
-			if(name.trim().length()<3) {
-				return(ERROR_UN1);
-			}else {
-					return null;
-			}
-		}else {	
-
-
-		}	
-		return null; 
-	}
-
-	private String validateUserFN(String firstName) {
-		if(firstName != null && firstName.trim().length() != 0) {
-			if(firstName.trim().length()<3) {
-				return(ERROR_FN1);
-			}else {
-					return null;
-			}
-		}else {	
-			return ERROR_FN2;
-		}		
-	}
+	
 	
 
 }
