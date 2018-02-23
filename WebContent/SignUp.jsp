@@ -40,7 +40,11 @@
                     <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2">
                 </div>
             </div>
-    
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Adresse" id="user_input_autocomplete_address" name="user_input_autocomplete_address" >
+                </div>
+            </div>
             <div class="form-group row">
                 <div class="offset-sm-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Inscription</button>
@@ -48,6 +52,12 @@
             </div>
         </form>
     </div>
+    
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDW5yHAL_4hi2cVafivQKfrV0r_Kixo3NM"></script>
+
+    <!-- Custom JS code to bind to Autocomplete API -->
+    <script type="text/javascript" src="js/autocomplete.js"></script>
 
 </body>
 </html>

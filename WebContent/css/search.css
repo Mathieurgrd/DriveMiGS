@@ -1,0 +1,21 @@
+@CHARSET "ISO-8859-1";
+
+#adresse{
+    border: 3px #999 solid;
+    border-radius: 5px;
+}
+
+#trajetsdispo{
+    border: 0px #999 solid;
+}
+body{
+    text-align: center;
+}
+
+.search {
+	margin-top: 200px;
+}
+
+.newRide {
+	margin-top: 70px;
+}
