@@ -18,11 +18,19 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		  <a class="navbar-brand" href="#">DriveMiGS</a>
 		  
+
 		  <c:choose>
                 <c:when test="${userStatus}">
                     <ul class="navbar-nav ml-auto">
                         <li class="navbar-item">
-                            <a class="navbar-brand" href="" role="">${user.getEmailAdress()}</a>
+
+                            <a class="navbar-brand" href="" role="">${user.getEmailAdress()}</a>	
+                        </li>
+                         <li class="nav-item">
+                            <a class="navbar-brand " href="<c:url value="LogOut"/>">DECONNEXION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand " href="<c:url value="SignOut"/>">SUPPRIMER MON COMPTE</a>
                         </li>
                     </ul>
                 </c:when>
@@ -38,6 +46,7 @@
                 </c:otherwise>
             </c:choose>
 		</nav>
+
     </div>
     
     <div class="container">
@@ -51,5 +60,6 @@
 	   </div>
   </div>
     
+
 
 </html>

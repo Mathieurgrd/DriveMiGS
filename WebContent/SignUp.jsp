@@ -12,9 +12,10 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="wrapper">
         <form method="POST" action="SignUp">
             <div class="form-group row">
+            <!--  -->
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" name="firstname"><span class="error">${errors['firstname']}</span>
                 </div>
@@ -29,7 +30,11 @@
                     <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email"><span class="error">${errors['email']}</span>
                 </div>
             </div>
-    
+		     <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputlocation" placeholder="Adresse" name="location"><span class="error">${errors['location']}</span>
+                </div>
+            </div>
             <div class="form-group row">
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe" name="pwd1"><span class="error">${errors['pwd1']}</span>
