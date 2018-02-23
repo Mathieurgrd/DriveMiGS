@@ -32,6 +32,9 @@
                         <li class="nav-item">
                             <a class="navbar-brand " href="<c:url value="SignOut"/>">SUPPRIMER MON COMPTE</a>
                         </li>
+                         <li class="nav-item">
+                            <a class="navbar-brand " href="<c:url value="UpdateUser"/>">MODIFIER MON COMPTE</a>
+                        </li>
                     </ul>
               </c:when>
                 <c:otherwise>
