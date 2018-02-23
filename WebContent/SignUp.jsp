@@ -8,51 +8,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/signUp.css">
 </head>
 
 <body>
     <div class="wrapper">
-        <form method="POST" action="SignUp">
+        <form method="POST" class="form-signUp" action="SignUp">
+            <h2 class="form-signin-heading">S'inscrire</h2>
             <div class="form-group row">
             <!--  -->
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" name="firstname"><span class="error">${errors['firstname']}</span>
+                    <input type="text" class="form-control" id="inputFirstName" placeholder="Prénom" name="firstname" required="true"><span class="error">${errors['firstname']}</span>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputLastName" placeholder="Nom" name="name"><span class="error">${errors['name']}</span>
+                    <input type="text" class="form-control" id="inputLastName" placeholder="Nom" name="name" required="true"><span class="error">${errors['name']}</span>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email"><span class="error">${errors['email']}</span>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required="true"><span class="error">${errors['email']}</span>
                 </div>
             </div>
 		     <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputlocation" placeholder="Adresse" name="location"><span class="error">${errors['location']}</span>
+                    <input type="text" class="form-control" placeholder="Adresse" id="user_input_autocomplete_address" name="user_input_autocomplete_address" required="true">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe" name="pwd1"><span class="error">${errors['pwd1']}</span>
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe" name="pwd1" required="true"><span class="error">${errors['pwd1']}</span>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2">
+                    <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2" required="true">
                 </div>
             </div>
-            <div class="form-group row">
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Adresse" id="user_input_autocomplete_address" name="user_input_autocomplete_address" >
-                </div>
-            </div>
+            
             <div class="form-group row">
                 <div class="offset-sm-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">Inscription</button>
+                    <button type="submit" class="btn btn-primary button-signup">Inscription</button>
                 </div>
             </div>
         </form>
