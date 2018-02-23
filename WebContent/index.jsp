@@ -15,12 +15,15 @@
 <body>
     
     <div class="header">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-		  <a class="navbar-brand" href="#">DriveMiGS</a>  
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		  <a class="navbar-brand" href="#">DriveMiGS</a>
+		  
+
 		  <c:choose>
                 <c:when test="${userStatus}">
                     <ul class="navbar-nav ml-auto">
                         <li class="navbar-item">
+
                             <a class="navbar-brand" href="" role="">${user.getEmailAdress()}</a>	
                         </li>
                          <li class="nav-item">
@@ -43,8 +46,20 @@
                 </c:otherwise>
             </c:choose>
 		</nav>
-    </div>    
-    <div class="map">
-        <c:import url="map.jsp" />
+
     </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <c:import url="map.jsp" />
+            </div>
+            <div class="col search">
+		        <c:import url="search.jsp" />
+		    </div>
+	   </div>
+  </div>
+    
+
+
 </html>
