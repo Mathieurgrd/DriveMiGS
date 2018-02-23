@@ -22,11 +22,16 @@
 		  <c:choose>
 		  	<c:when test="${userStatus}">
                     <ul class="navbar-nav ml-auto">
+
                         <li class="navbar-item">
-
-                            <a class="navbar-brand" href="" role="">${user.getEmailAdress()}</a>	
+                            <a class="navbar-brand" href="" role="">${user.getFirstName()}</a>	
                         </li>
-
+                         <li class="nav-item">
+                            <a class="navbar-brand " href="<c:url value="LogOut"/>">DECONNEXION</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand " href="<c:url value="SignOut"/>">SUPPRIMER MON COMPTE</a>
+                        </li>
                     </ul>
               </c:when>
                 <c:otherwise>
