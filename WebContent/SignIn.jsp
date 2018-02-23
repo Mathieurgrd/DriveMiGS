@@ -20,10 +20,10 @@
         <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><span class="error">${errors['email']}</span>
         <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><span class="error">${errors['pwd1']}</span>
         <label class="checkbox">
-            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Rester connecté
+            <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Rester connectÃ©
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-        <a href="">Création d'un compte</a>
+        <a href="">CrÃ©ation d'un compte</a>
     </form>
 </div>
 </body>

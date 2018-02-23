@@ -90,8 +90,7 @@ public class SignIn extends HttpServlet {
 			if (errorMail!=null) {
 				errors.put(FIELD_EMAIL,errorMail);
 				fail++;			
-			}
-		
+			}		
 			String errorPwd = validatePwd(pwd1);
 			if (errorPwd!=null) {
 				errors.put(FIELD_PWD1,errorPwd);
