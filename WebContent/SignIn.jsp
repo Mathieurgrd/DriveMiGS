@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Connexion</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" lang="fr">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -16,8 +16,9 @@
 <div class="wrapper">
     <form class="form-signin" method="POST" action="SignIn">
         <h2 class="form-signin-heading">S'identifier</h2>
-        <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><span class="error">${errors['email']}</span>
-        <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><span class="error">${errors['pwd1']}</span>
+        <span class="error">${errors['noUser']}</span>
+        <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><br><span class="error">${errors['email']}</span><br>
+        <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><br><span class="error">${errors['pwd1']}</span><br>
         <label class="checkbox">
             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Rester connecté
         </label>
