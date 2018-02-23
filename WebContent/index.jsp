@@ -23,7 +23,7 @@
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> ${user.getFirstName()} </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#">Modifier mon compte</a>
+							<a class="dropdown-item" href="UpdateUser">Modifier mon compte</a>
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="" data-toggle="modal"
                                 data-target="#disconnect">Deconnexion</a>
