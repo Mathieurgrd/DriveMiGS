@@ -17,13 +17,13 @@
     <form class="form-signin" method="POST" action="SignIn">
         <h2 class="form-signin-heading">S'identifier</h2>
         <span class="error">${errors['noUser']}</span>
-        <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><br><span class="error">${errors['email']}</span><br>
-        <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><br><span class="error">${errors['pwd1']}</span><br>
+        <input type="text" class="form-control" name="email" placeholder="Email" required="true" /><span class="error">${errors['email']}</span>
+        <input type="password" class="form-control" name="pwd1" placeholder="Mot de passe" required="true"/><span class="error">${errors['pwd1']}</span>
         <label class="checkbox">
             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Rester connecté
         </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-        <a href="">Création de compte</a>
+        <a href="">Création d'un compte</a>
     </form>
 </div>
 </body>
