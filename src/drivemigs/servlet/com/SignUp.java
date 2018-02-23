@@ -42,6 +42,8 @@ public class SignUp extends HttpServlet {
 	public static final String ERROR_UN2="Merci de renseigner ton nom<br>";
 	public static final String ERROR_FN1="Le prénom est trop courts<br>";
 	public static final String ERROR_FN2="Merci de renseigner ton prénom<br>";
+	public static final String ERROR_MAIL1="L'adresse mail est obligatoire<br>";
+	public static final String ERROR_MAIL2="Veuillez saisir une adresse mail valide<br>";
 	HashMap<String,UserBean> users = new HashMap<String,UserBean>();
 //	public HashMap<String,User> users = new HashMap<String,User>();
 	
@@ -173,12 +175,12 @@ public class SignUp extends HttpServlet {
 		private String validateEmail(String email) {
 			if( email != null && email.trim().length()!=0) {
 				if ( !email.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
-					return("Veuillez saisir une adresse mail valide<br>");
+					return(ERROR_MAIL2);
 				}else {
 					return null;
 				}
 			} else { 
-				return("L'adresse mail est obligatoire<br>");		
+				return(ERROR_MAIL1);		
 
 			}		
 						
