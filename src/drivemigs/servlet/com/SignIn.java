@@ -81,7 +81,7 @@ public class SignIn extends HttpServlet {
 		String actionMessage="";/**, url**/;
 		int fail =0;		
 
-		if(users.size()==0) {
+		if(users==null) {
 			errors.put("noUser","Aucun utilisateur");
 			request.setAttribute("errorStatus", true);
 			url = VIEW_PAGES_URL;
@@ -90,8 +90,7 @@ public class SignIn extends HttpServlet {
 			if (errorMail!=null) {
 				errors.put(FIELD_EMAIL,errorMail);
 				fail++;			
-			}
-		
+			}		
 			String errorPwd = validatePwd(pwd1);
 			if (errorPwd!=null) {
 				errors.put(FIELD_PWD1,errorPwd);
