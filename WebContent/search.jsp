@@ -10,13 +10,13 @@
 <body>
     <div>
         <label for="email">Votre point de départ</label>
-        <input type="text" class="form-control" name="text" placeholder="Votre point de départ"/>
+        <input type="text" class="form-control"  placeholder="Votre Point de Départ" name="user_input_autocomplete_address" >
     </div>
     
     </br>
     
     <div>
-        <button type="button" class="btn btn-danger">Rechercher</button>
+        <button onclick="initialize()" type="button" class="btn btn-danger">Rechercher</button>
     </div>
     
     </br>
@@ -25,8 +25,9 @@
         <p>3 trajets disponibles autour de vous</p>
     </div>
     <div class="newRide">
-       <button type="button" class="btn btn-primary newRide ">Proposer un trajet</button>
+       <a type="button" class="btn btn-primary newRide" href="maketrajet.jsp">Proposer un trajet</a>
     </div>
+    <script type="text/javascript" src="js/autocomplete.js"></script>
     
 </body>
 </html>

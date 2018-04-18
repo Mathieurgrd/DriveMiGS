@@ -56,7 +56,7 @@
     </div>
     
     <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDW5yHAL_4hi2cVafivQKfrV0r_Kixo3NM"></script>
+            src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDZl4ZXOpDe9Cp04jf-qas8nopGnkxpoVw"></script>
 
     <!-- Custom JS code to bind to Autocomplete API -->
     <script type="text/javascript" src="js/autocomplete.js"></script>
