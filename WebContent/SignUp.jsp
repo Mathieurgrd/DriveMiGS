@@ -31,11 +31,7 @@
                     <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required="true"><span class="error">${errors['email']}</span>
                 </div>
             </div>
-		     <div class="form-group row">
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="Adresse" id="user_input_autocomplete_address" name="user_input_autocomplete_address" required="true">
-                </div>
-            </div>
+
             <div class="form-group row">
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="inputPassword" placeholder="Mot de passe" name="pwd1" required="true"><span class="error">${errors['pwd1']}</span>
@@ -43,7 +39,13 @@
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2" required="true">
+                    <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Vérification mot de passe" name="pwd2">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" placeholder="Adresse" id="user_input_autocomplete_address" name="location" >
+                    <span class="error">${errors['location']}</span>
                 </div>
             </div>
             
