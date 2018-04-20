@@ -55,6 +55,7 @@
             </div>
             <div class="col search">
                 <c:import url="search.jsp" />
+               
             </div>
         </div>
     </div>
@@ -71,7 +72,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">Etes-vous sûre de vouloir quitter
+                <div class="modal-body">Etes-vous certain de vouloir quitter
                     l'aventure DriveMiGS ?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
@@ -95,7 +96,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">Etes-vous sûre de vouloir vous déconnecter ?</div>
+                <div class="modal-body">Etes-vous sûre de vouloir vous d�connecter ?</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary"
                         data-dismiss="modal">Non</button>

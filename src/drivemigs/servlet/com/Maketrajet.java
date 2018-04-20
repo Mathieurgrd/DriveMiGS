@@ -59,7 +59,7 @@ public class Maketrajet extends HttpServlet {
 		if(user!= null) {
 			
 			
-			/**
+			
 			DateFormat df = new SimpleDateFormat("dd/mm/yyyy");
 			Date dateDep=new Date();
 			try {
@@ -68,7 +68,7 @@ public class Maketrajet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
-			**/
+			
 			String addressDepart= request.getParameter(FIELD_ADDRESS);
 			String hour=request.getParameter(FIELD_HOUR);
 			
