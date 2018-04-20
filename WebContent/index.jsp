@@ -106,6 +106,17 @@
             </div>
         </div>
     </div>
+    <c:choose>
+            <c:when test="${userStatus}">
+            <div>
+              <a class="btn btn-primary" href="<c:url value="FicheUser"/>" role="button">Noter un utilisateur</a>
+            </div>
+  
+            </c:when>
+            <c:otherwise>
+           
+            </c:otherwise>
+        </c:choose>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

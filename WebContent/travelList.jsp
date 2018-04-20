@@ -20,17 +20,31 @@
 				<th>Date</th>
 				<th>Heure de départ</th>
 			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			<tr>
-			
-		
+	
+		<c:forEach var="trajet" items="${sessionScope.trajets}"> 	
+			<c:choose>
+				<c:when test="${sessionScope.users==null}">>
+				
+				</c:when>
+				<c:otherwise>
+				
+					<tr>
+						<td> ${ trajet.value.getTransportDriver().getName() }</td>
+						<td> ${ trajet.value.getAddress() }</td>
+						<td> ${ trajet.value.getDateDepart() }</td>
+						<td> ${ trajet.value.getHeureDepart() }</td>
+						
+					</tr>
+				
+				</c:otherwise>
+			</c:choose>
+		</c:forEach> 	
 	</table>
-        
+
        </div>
+       <!-- 
                 <script type="text/javascript" src="js/travelList.js"></script>
+        -->
+       
 </body>
 </html>

@@ -84,7 +84,7 @@ public class Maketrajet extends HttpServlet {
 			request.setAttribute("trajetStatus",true);	
 			request.setAttribute("userStatus", true);
 			((HashMap<String, TrajetBean>) session.getAttribute("trajets")).put(idTrajet,trajet);
-			request.setAttribute("trajets", trajet);
+			request.setAttribute("trajet", trajet);
 			
 		}
 		
