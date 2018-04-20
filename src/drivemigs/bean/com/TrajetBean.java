@@ -16,12 +16,28 @@ public class TrajetBean {
 	private double LatDepart;
 	private double LongDepart;
 	private Date dateDepart;
-	private String heureDepart; 
+	private String heureDepart;
+	private String address;
 
 	
 	
 
 	
+	public TrajetBean(UserBean user, Date date, String address, String hour) {
+		// TODO Auto-generated constructor stub
+		this.transportDriver=user;
+		this.dateDepart=date;
+		this.heureDepart=hour;
+		this.address=address;
+	}
+
+	public TrajetBean(UserBean user, String address, String hour) {
+		// TODO Auto-generated constructor stub
+		this.transportDriver=user;
+		this.heureDepart=hour;
+		this.address=address;
+	}
+
 	public UserBean getTransportDriver() {
 		return transportDriver;
 	}
@@ -44,6 +60,14 @@ public class TrajetBean {
 
 	public void setStatutTransport(int statutTransport) {
 		this.statutTransport = statutTransport;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	} 
 	
 	
