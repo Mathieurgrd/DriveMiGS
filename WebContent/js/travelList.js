@@ -1,8 +1,8 @@
-  var array = [["Jean-Martin ", "Latitude", "Longitude"],
-            ["Jean-Martin ", "Latitude", "Longitude"],
-            ["Jean-Martin ", "Latitude", "Longitude"],
-            ["Jean-Martin ", "Latitude", "Longitude"],
-            ["Jean-Martin ", "Latitude", "Longitude"], ],
+  var array = [["Jean-Martin ", "21/04/2018", "Place du capitole","10:00"],
+  				["Jean-Martin ", "21/04/2018", "Place du capitole","10:00"],
+  				["Jean-Martin ", "21/04/2018", "Place du capitole","10:00"],
+  				["Jean-Martin ", "21/04/2018", "Place du capitole","10:00"],
+  				["Jean-Martin ", "21/04/2018", "Place du capitole","10:00"]];
                 table = document.getElementById("table");
 
         /* Method 1

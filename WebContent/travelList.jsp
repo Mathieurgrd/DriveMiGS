@@ -13,13 +13,24 @@
         <table id="table" border="1">
 
             <!-- The Row Number 0 -->
-            <tr>
-                <th>UserName</th>
-                <th></th>
-                <th></th>
-            </tr>
         
-        </table>    </div>
-            <script type="text/javascript" src="js/travelList.js"></script>
+			<tr>
+				<th>Nom</th>
+				<th>Point de départ</th>
+				<th>Date</th>
+				<th>Heure de départ</th>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			<tr>
+			
+		
+	</table>
+        
+       </div>
+                <script type="text/javascript" src="js/travelList.js"></script>
 </body>
 </html>
