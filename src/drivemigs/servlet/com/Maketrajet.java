@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +30,7 @@ public class Maketrajet extends HttpServlet {
 	public static final String FIELD_DATE="dateDepart";
 	public static final String FIELD_HOUR="wakeup";
 	public static final String FIELD_ADDRESS="user_input_autocomplete_address";
+	public HashMap<String,TrajetBean> trajets = new HashMap<String,TrajetBean>();
 
        
     /**
@@ -55,11 +57,10 @@ public class Maketrajet extends HttpServlet {
 		// TODO Auto-generated method stub
 		final HttpSession session = request.getSession();
 		UserBean user = (UserBean) session.getAttribute("user");
+		session.setAttribute("trajets",trajets);
 		url = VIEW_INDEX_URL;
 		if(user!= null) {
-			
-			
-			/**
+					
 			DateFormat df = new SimpleDateFormat("dd/mm/yyyy");
 			Date dateDep=new Date();
 			try {
@@ -68,19 +69,22 @@ public class Maketrajet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
-			**/
+			
 			String addressDepart= request.getParameter(FIELD_ADDRESS);
 			String hour=request.getParameter(FIELD_HOUR);
 			
-			TrajetBean trajet = new TrajetBean(user,addressDepart,hour);
+			TrajetBean trajet = new TrajetBean(user, dateDep,addressDepart,hour);
 			if(addressDepart==""||hour=="") {
 				request.setAttribute("trajetStatus",false);	
 			}
 			request.setAttribute("user",user);
+			String idTrajet = user.getEmailAdress()+'_'+dateDep+'_'+addressDepart;
 			session.setAttribute("user",user);
 			request.setAttribute("lastTrajet",trajet);	
 			request.setAttribute("trajetStatus",true);	
 			request.setAttribute("userStatus", true);
+			((HashMap<String, TrajetBean>) session.getAttribute("trajets")).put(idTrajet,trajet);
+			request.setAttribute("trajets", trajet);
 			
 		}
 		

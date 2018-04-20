@@ -27,18 +27,26 @@
        </c:choose>
     </div>
 
-    </br>
+    <br>
 
     <div>
         <button onclick="initialize()" type="button" class="btn btn-danger">
             Rechercher
     </div>
 
-    </br>
+    <br>
 
     <div>
-        <p>
-            3 trajets disponibles autour de vous
+    <c:choose>
+            <c:when test="${userStatus}">
+	         <c:import url="travelList.jsp" />
+
+            </c:when>
+            <c:otherwise>
+               <div>3 itinéraires autour de vous</div>
+            </c:otherwise>
+        </c:choose>
+
     </div>
 	    
 	<div class="newRide">
@@ -71,7 +79,7 @@
 		                <div class='col-sm-6'>
 		                    <div class="form-group">
 		                        <div class='input-group date' id='datetimepicker1'>
-		                            <input type='date' class="form-control" />
+		                            <input type='date' class="form-control" name="dateDepart" />
 		                            <span class="input-group-addon">
 		                                <span class="glyphicon glyphicon-calendar"></span>
 		                            </span>
