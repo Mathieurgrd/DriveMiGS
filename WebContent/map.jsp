@@ -4,14 +4,26 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+
+
+    <script
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+
 </head>
 <body>
-    <div id="map-canvas" style="height:600px; width:600px"></div>
+    <div id="map-canvas" style="height:550px; width:550px"></div>
+
+
 </body>
 
 <script type="text/javascript" src="js/geocodage.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDW5yHAL_4hi2cVafivQKfrV0r_Kixo3NM"></script>
+
+<script type="text/javascript"
+src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDW5yHAL_4hi2cVafivQKfrV0r_Kixo3NM"></script>
+
+<!-- Custom JS code to bind to Autocomplete API -->
 <script type="text/javascript" src="js/autocomplete.js"></script>
+
 
 </html>

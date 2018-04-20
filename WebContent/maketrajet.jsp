@@ -14,7 +14,7 @@
 
 <body>
 <div class="wrapper">
-    <form class="form-signin" method="POST" action="SignIn">
+    <form class="form-signin" method="POST" action="Maketrajet">
         <h2 class="form-signin-heading">Proposer un trajet</h2>
         <label for="depart">Lieu de départ :</label><br>
         <input type="text" class="form-control" name="user_input_autocomplete_address" placeholder="Départ"/><br>
@@ -28,7 +28,7 @@
 		        <div class='col-sm-6'>
 		            <div class="form-group">
 		                <div class='input-group date' id='datetimepicker1'>
-		                    <input type='date' class="form-control" />
+		                    <input type='date' name='dateDepart' class="form-control" />
 		                    <span class="input-group-addon">
 		                        <span class="glyphicon glyphicon-calendar"></span>
 		                    </span>
